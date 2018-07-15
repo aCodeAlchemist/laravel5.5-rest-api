@@ -13,7 +13,7 @@ class FilmsController extends Controller
 
     public function show($id)
     {
-        return Films::with('comments')->find($id);
+        return Films::with('comments')->where('slug' , '=', $id)->first();
     }
 
     public function store(Request $request)

@@ -18,13 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('cors')->post('register', 'Auth\RegisterController@register');
-Route::middleware('cors')->post('login', 'Auth\LoginController@login');
-Route::middleware('cors')->post('logout', 'Auth\LoginController@logout');
+Route::post('register', 'Auth\RegisterController@register');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
 
-Route::middleware('cors')->get('films', 'FilmsController@index');
-Route::middleware('cors')->get('films/{film}', 'FilmsController@show');
-Route::middleware('cors')->post('films', 'FilmsController@store');
-Route::middleware('cors')->put('films/{film}', 'FilmsController@update');
-Route::middleware('cors')->delete('films/{article}', 'FilmsController@delete');
-Route::middleware('cors')->middleware('auth:api')->post('comment', 'CommentsController@store');
+Route::get('films', 'FilmsController@index');
+Route::get('films/{film}', 'FilmsController@show');
+Route::post('films', 'FilmsController@store');
+Route::put('films/{film}', 'FilmsController@update');
+Route::delete('films/{article}', 'FilmsController@delete');
+Route::middleware('auth:api')->post('comment', 'CommentsController@store');
