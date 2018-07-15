@@ -16,9 +16,9 @@ class CreateFilmCommentsTable extends Migration
         Schema::create('film_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('film_id');
+            $table->unsignedInteger('user_id');
             $table->string('comment');
             $table->timestamps();
-            $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');
         });
     }
 

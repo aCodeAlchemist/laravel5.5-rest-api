@@ -8,12 +8,12 @@ class FilmsController extends Controller
 {
     public function index()
     {
-        return Films::all();
+        return Films::paginate(1);
     }
 
-    public function show(Films $film)
+    public function show($id)
     {
-        return $film;
+        return Films::with('comments')->find($id);
     }
 
     public function store(Request $request)

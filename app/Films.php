@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Films extends Model
 {
+    protected $table = 'films';
     protected $fillable = [
         'name',
         'slug',
@@ -17,4 +18,9 @@ class Films extends Model
         'genre',
         'photo'
     ];
+
+    public function comments()
+    {
+        return $this->hasMany('App\FilmComments', 'film_id', 'id')->with('user');
+    }
 }
