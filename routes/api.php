@@ -26,5 +26,5 @@ Route::get('films', 'FilmsController@index');
 Route::get('films/{film}', 'FilmsController@show');
 Route::post('films', 'FilmsController@store');
 Route::put('films/{film}', 'FilmsController@update');
-Route::delete('films/{article}', 'FilmsController@delete');
+Route::delete('films/{film}', 'FilmsController@delete');
 Route::middleware('auth:api')->post('comment', 'CommentsController@store');
